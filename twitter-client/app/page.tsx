@@ -2,9 +2,11 @@ import Image from "next/image";
 import React from "react";
 import { BsTwitterX,BsCardList,BsPerson } from "react-icons/bs";
 import { GoHome,GoSearch,GoBell,GoMail  } from "react-icons/go";
-import { CiCircleMore } from "react-icons/ci";  
+import { CiCircleMore } from "react-icons/ci"; 
+import FeedCard from "@/components/FeedCard";
 
 
+/********This is the Left Nav Bar section */
 //Left nav icons
 interface TwitterSidebarButton{
   title: String;
@@ -39,38 +41,54 @@ const sidebarMenuItems: TwitterSidebarButton[] = [
   },
   {
     title:'More',
-    icon: <CiCircleMore />,
+    icon: < CiCircleMore />,
   },
 ]
 
 export default function Home() {
   return (
-     <>
-     <div className="font-serif"></div>
-     <div className="grid grid-cols-12 h-screen w-screen px-56">
+    
+     <div>
+     <div className="flex flex-row-10 h-screen w-screen px-56 ">
       
-      <div className="col-span-3 border-r-1px  border-r-slate-500 ">
-        <div className="text-4xl h-fit hover:bg-gray-800 rounded-full p-3 
-        transition-all cursor-pointer w-fit ">
+      <div className="flex-row-1 pt-8 -ml-14">
+        <div className="text-4xl h-fit w-fit hover:bg-gray-800 rounded-full p-3 
+        transition-all cursor-pointer  ">
       <BsTwitterX />
         </div>
-        <div className="mt-4 text-2xl cursor-pointer pr-4">
+        <div className="mt-4 text-xl cursor-pointer pr-4">
           <ul>
             {sidebarMenuItems.map((item)=>(
-              <li className="flex justify-start items-center gap-4 hover:bg-gray-800 rounded-full px-5 py-2 w-fit mt-2" key={item.title} >
-                  <span>{item.icon}</span>
+              <li className="flex justify-start items-center gap-4 hover:bg-gray-800 rounded-full px-3 py-3 w-fit mt-2" >
+                  <span className="text-3xl">{item.icon}</span>
                   <span>{item.title}</span>
               </li>
             ))}
           </ul> 
           <div className="mt-5 px-3">
-          <button className="font-semibold bg-[#1d9bf0] p-4 text-lg rounded-full w-full  hover:bg-[#50a9e4]">Post</button>
+          <button className="font-semibold bg-[#1d9bf0] py-2 px-4  text-lg rounded-full w-full  hover:bg-[#50a9e4]">Post</button>
           </div>
           </div>
       </div>
-        <div className="col-span-6 border-r-2 border-l-2 border-slate-400"></div>
-        <div className="col-span-3"></div>
+        <div className="flex-row-4 border-l-[1px]  border-r-[1px]  border-gray-600 h-fit "> 
+        <div >
+
+          <FeedCard /> 
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+          <FeedCard />
+        </div>
+
+        </div>
+        <div className="flex-row-span-3"></div>
       </div>
-     </>
+      </div>
+     
   );
 }
+/*******This is the end of the left side nav bar section */
+
